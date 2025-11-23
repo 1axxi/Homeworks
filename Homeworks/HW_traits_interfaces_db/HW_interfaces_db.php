@@ -54,6 +54,7 @@ class MysqlMigrate implements MigrationInterface
         echo "Это {$dbInfo['Sql']} бд, выполняю миграцию UP в {$tables['balance table']} в количестве {$fields[4]} полей\n";
     }
 
+
 }
 
 class MongoDBMigrate implements MigrationInterface
@@ -74,10 +75,11 @@ class MongoDBMigrate implements MigrationInterface
         $fields = self::CountOfFields(5,4,3);
         echo "Это {$dbInfo['Mongo']} бд, выполняю миграцию UP в {$tables['users table']} в количестве {$fields[3]} полей\n";
     }
+
 }
     trait InfoDb
     {
-        public static function NameDb($namePostgres,$nameSql,$nameMongo)
+        public static function nameDb($namePostgres,$nameSql,$nameMongo)
         {
             return [
                 'Postgres' => $namePostgres,
@@ -86,7 +88,7 @@ class MongoDBMigrate implements MigrationInterface
             ];
         }
 
-        public static function WhichTable($tablePostgres,$tableSql,$tableMongo)
+        public static function whichTable($tablePostgres,$tableSql,$tableMongo)
         {
             return [
                 'email table' => $tablePostgres,
@@ -95,7 +97,7 @@ class MongoDBMigrate implements MigrationInterface
             ];
         }
 
-        public static function CountOfFields($fieldsPostgres,$fieldSql,$fieldMongo)
+        public static function countOfFields($fieldsPostgres,$fieldSql,$fieldMongo)
         {
             return [
                 5 => $fieldsPostgres,
